@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title><%= title %></title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="https://cdn.prod.website-files.com/67a3ce6c2892cedd24a60b2a/css/deepgrid-io.webflow.140c31999.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Roboto:300,regular,500"]
+            }
+        });
+    </script>
+    <style>
+        .narrow-container {
+            max-width: 1000px !important;
+            margin: 0 auto;
+        }
+
+        /* Dark green styles */
+        .button {
+            background-color: #1a472a !important;
+        }
+        
+        .button:hover {
+            background-color: #2d5a3c !important;
+        }
+
+        .hollow-button.w-button {
+            border-color: #1a472a !important;
+            color: #1a472a !important;
+            background-color: transparent !important;
+        }
+
+        .hollow-button.w-button:hover {
+            background-color: #1a472a !important;
+            color: white !important;
+        }
+
+        .w-button:focus {
+            border-color: #1a472a !important;
+            outline-color: #1a472a !important;
+        }
+
+        .section.accent {
+            background-color: #1a472a !important;
+        }
+
+        .navigation-link:hover {
+            color: #1a472a !important;
+        }
+
+        /* Metallic text colors */
+        .hero-heading {
+            color: #4a4e4d !important;
+        }
+
+        .section-heading {
+            color: #4a4e4d !important;
+        }
+
+        .section-heading.white {
+            color: white !important;
+        }
+
+        .hero-subheading, 
+        .section-subheading {
+            color: #717775 !important;
+        }
+
+        .section-subheading.off-white {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        h3 {
+            color: #4a4e4d !important;
+        }
+
+        p {
+            color: #717775 !important;
+        }
+
+        a {
+            color: #4a4e4d;
+        }
+
+        .navigation-link {
+            color: #4a4e4d !important;
+        }
+
+        .footer-link {
+            color: #717775 !important;
+        }
+
+        .footer-link:hover {
+            color: #4a4e4d !important;
+        }
+
+        /* Updated hero section styles for fullscreen */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;  /* Full viewport height */
+            min-height: 600px;  /* Minimum height for smaller screens */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;  /* Remove padding */
+        }
+
+        .hero-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;  /* Ensure content stays above video */
+        }
+
+        .hero-heading {
+            font-size: 64px !important;  /* Larger font size */
+            line-height: 1.2 !important;
+            margin-bottom: 30px !important;
+        }
+
+        .hero-subheading {
+            font-size: 24px !important;  /* Larger font size */
+            line-height: 1.5 !important;
+            margin-bottom: 40px !important;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button-group {
+            margin-top: 40px;  /* More spacing */
+        }
+
+        /* Rest of existing video background and other styles */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Darker overlay for better text visibility */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        /* Adjust navigation for overlay */
+        .navigation-bar {
+            background-color: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: 3;
+        }
+
+        .navigation-link {
+            color: white !important;
+        }
+
+        .navigation-link:hover {
+            color: #E2F0D9 !important;
+        }
+
+        /* Updated hero text styles */
+        .hero-section .hero-heading {
+            color: #FFFFFF !important;  /* Pure white */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            font-weight: 700 !important;  /* Bold */
+            letter-spacing: -0.02em;  /* Slightly tighter letter spacing */
+        }
+
+        .hero-section .hero-subheading {
+            color: rgba(255, 255, 255, 0.9) !important;  /* Slightly transparent white */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            font-weight: 500 !important;  /* Medium weight */
+        }
+
+        /* Enhance text shadow for better contrast against video */
+        .hero-wrapper {
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Make both buttons match */
+        .button.w-button,
+        .hollow-button.w-button {
+            background-color: #1a472a !important;
+            color: white !important;
+            border: none !important;
+            transition: background-color 0.3s ease !important;
+        }
+
+        .button.w-button:hover,
+        .hollow-button.w-button:hover {
+            background-color: #2d5a3c !important;
+            color: white !important;
+        }
+
+        /* Add some spacing between buttons */
+        .button-group .w-button {
+            margin: 0 10px;
+        }
+
+        /* Feature icon styles */
+        .feature-icon {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .white-box:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .white-box {
+            text-align: center;
+            padding: 40px 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .white-box:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Accent section text styles */
+        .accent-heading {
+            color: #E2F0D9 !important;  /* Light sage green */
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .accent-text {
+            color: rgba(226, 240, 217, 0.85) !important;  /* Slightly transparent light sage */
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .section.accent {
+            background-color: #1a472a !important;
+        }
+
+        .white-box.transparent {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 25px 0;
+        }
+
+        /* Updated text formatting for accent boxes */
+        .white-box.transparent .accent-text {
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-align: justify;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+        }
+
+        .white-box.transparent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .white-box.transparent .accent-heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Updated spacing for columns */
+        .w-row {
+            margin: 0 -30px;  /* Increase negative margin to offset padding */
+            margin-bottom: 40px;  /* Add space between rows */
+        }
+
+        .w-col-6 {
+            padding: 0 30px;  /* Increase padding for more space between columns */
+        }
+
+        .white-box.transparent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px 0;  /* Add vertical padding */
+        }
+
+        /* Remove margin from last row */
+        .w-row:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Contact page video styles */
+        .video-container {
+            width: 100%;
+            height: 400px;  /* Match original map height */
+            margin-bottom: 60px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .contact-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Contact page video overlay styles */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .video-container {
+            position: relative;
+        }
+
+        .video-container .section-heading.white {
+            color: white !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container .section-subheading.off-white {
+            color: rgba(255, 255, 255, 0.9) !important;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation-bar w-nav">
+        <div class="w-container">
+            <nav role="navigation" class="navigation-menu w-nav-menu">
+                <a href="/" class="navigation-link w-nav-link">Home</a>
+                <a href="/contact" class="navigation-link w-nav-link">Contact</a>
+            </nav>
+            <div class="hamburger-button w-nav-button">
+                <div class="w-icon-nav-menu"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
